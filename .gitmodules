@@ -1,0 +1,12 @@
+[submodule "vendor/plugins/acts_as_tree"]
+	path = vendor/plugins/acts_as_tree
+	url = git://github.com/rails/acts_as_tree.git
+[submodule "vendor/plugins/natto"]
+	path = vendor/plugins/natto
+	url = git@github.com:djnawara/natto.git
+[submodule "vendor/plugins/engines"]
+	path = vendor/plugins/engines
+	url = git://github.com/lazyatom/engines.git
+[submodule "vendor/plugins/acts_as_state_machine"]
+	path = vendor/plugins/acts_as_state_machine
+	url = git://github.com/freels/acts_as_state_machine.git

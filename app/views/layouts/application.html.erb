@@ -1,0 +1,52 @@
+<% if !ie? %><?xml version="1.0" encoding="utf-8"?>
+<%end%><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  
+  <title><%= Natto.site_title %> - <%= (@object && @object.class.name.eql?('Page')) ? @object.title : "#{params[:controller].capitalize}: #{params[:action]}" %></title>
+  
+  <!-- [begin:stylesheets] -->
+  <%= stylesheet_link_tag 'main' %>
+  <!-- [end:stylesheets] -->
+  
+  <!--[if lte IE 7]>
+    <%= stylesheet_link_tag "ie" %>
+  <![endif]-->
+</head>
+<body class="main">
+<div id="frame" class="clearfix">
+  <div id="rail">
+  <%= image_tag('logo.png') %>
+  <%= render :partial => 'shared/navigation' %>
+  <%= render :partial => 'users/user_bar' %>
+  </div>
+  <div id="content"><!-- [begin:content] -->
+    <%= render :partial => 'shared/admin_toolbar' %>
+    
+    <%= render :partial => 'shared/location' %>
+    
+    <%= render :partial => "shared/notices" %>
+    
+    <%= yield  %>
+    
+  </div><!-- [end:content] -->
+</div>
+  <div id="footer">
+    <%= link_to('Sitemap', sitemap_path) %>
+    <div id="copyright">&copy; 2008 Dan &amp; Dave J. Nawara</div>
+  </div>
+
+<%= javascript_include_tag :all, :cache => false %>
+<%= javascript_include_tag 'admin', :cache => false, :plugin => 'natto' %>
+<script>
+document.observe("dom:loaded",function(ev){
+  <%= 'admin = new DJN.Admin();' if logged_in? && current_user.has_role?('administrator') %>
+  <%= yield  :onReady %>
+});
+//modal = new JSLib.Modal('header',{content:'foo',overlay:true,overlayStyle:'background:#000;opacity:.5;'})
+</script>
+</body>
+</html>

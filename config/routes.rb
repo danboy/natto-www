@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.from_plugin :natto
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -38,4 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  # Add the root route here
+  map.root :controller => 'pages', :action => 'home'
 end
