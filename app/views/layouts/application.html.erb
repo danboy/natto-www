@@ -17,9 +17,11 @@
   <![endif]-->
 </head>
 <body class="main">
+<div id="header" class="clearfix">
+  <%= image_tag('logo.png') %>
+</div>
 <div id="frame" class="clearfix">
   <div id="rail">
-  <%= image_tag('logo.png') %>
   <%= render :partial => 'shared/navigation' %>
   <%= render :partial => 'users/user_bar' %>
   </div>
@@ -43,10 +45,9 @@
 <%= javascript_include_tag 'admin', :cache => false, :plugin => 'natto' %>
 <script>
 document.observe("dom:loaded",function(ev){
-  <%= 'admin = new DJN.Admin();' if logged_in? && current_user.has_role?('administrator') %>
+
   <%= yield  :onReady %>
 });
-//modal = new JSLib.Modal('header',{content:'foo',overlay:true,overlayStyle:'background:#000;opacity:.5;'})
 </script>
 </body>
 </html>

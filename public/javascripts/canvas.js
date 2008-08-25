@@ -22,27 +22,25 @@ JSLib.Canvas = Class.create({
     this.frames = [];
     this.currentFrame = 0;
     $$('div.marker').each(function(marker,index){
-      
       this.frames[index] = [];
       this.frames[index].left = marker.positionedOffset().left;
       this.frames[index].top = marker.positionedOffset().top;
       this.frames[index].content = marker.innerHTML;
       marker.hide();
     }.bind(this));
-    this.moveToNextMarker();
     this.frames.size = this.frames.size()-1;
     this.positionModal();
   },
   moveToNextMarker: function(){
     self=this;
-    Effect.Fade(this.modal,{queue: 'end',duration: 2 ,afterFinish:function(){
+    Effect.Fade(this.modal,{queue: 'end',duration: 1 ,afterFinish:function(){
       this.modal.update(this.frames[this.currentFrame].content);
-      new Effect.Move(this.element, { afterFinish: function(){setTimeout('self.displayMessage()',2000)} , x: -this.frames[this.currentFrame].left, y: -this.frames[this.currentFrame].top, mode: 'absolute' });
+      new Effect.Move(this.element, { queue: 'end', afterFinish: function(){setTimeout('self.displayMessage()',1000)} , x: -this.frames[this.currentFrame].left, y: -this.frames[this.currentFrame].top, mode: 'absolute' });
     }.bind(this)});
   },
   displayMessage: function(){
       self=this;
-      Effect.Appear(this.modal,{queue: 'end',duration:2,afterFinish: function(){setTimeout('self.moveToNextMarker()',8000)}.bind(this)});
+      Effect.Appear(this.modal,{queue: 'end',duration:1,afterFinish: function(){setTimeout('self.moveToNextMarker()',8000)}.bind(this)});
       if(this.currentFrame < this.frames.size){
         this.currentFrame++;
       }else{
@@ -52,6 +50,7 @@ JSLib.Canvas = Class.create({
   },
   positionModal: function(){
     this.modal.setStyle({left: this.element.cumulativeOffset().left + (this.element.up().getWidth()/2)+'px',top:(this.element.cumulativeOffset().top + (this.element.up().getHeight()/2))-this.modal.getHeight()+'px'});
+    this.moveToNextMarker();
   }
 
 });

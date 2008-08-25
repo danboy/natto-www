@@ -11,7 +11,7 @@ abbr,acronym { border:0;}
 /*-----------------------------------
 Margin-bottom = line-height/font-size
 -----------------------------------*/
-body  { font-family: helvetica, arial, sans-serif; color:#222; font-size: 62.5%; background:#1A1A1A url(/images/page_stripe.png) repeat-x 0px 200px; line-height:1.8em;}
+body  { font-family: helvetica, arial, sans-serif; color:#222; font-size: 62.5%; background:#1A1A1A url(/images/page_stripe.png) repeat-x 0px 165px; line-height:1.8em;}
 a     { text-decoration:none; outline:none; }
 h1    { font-size: 2.7em; font-weight: bold; text-transform: capitalize; margin-bottom: 0.666666667em; }
 h2    { font-size: 2.0em; font-weight: bold; text-transform: capitalize; margin-bottom: 0.9em; }
@@ -19,24 +19,26 @@ h3    { font-size: 1.8em; font-weight: bold; text-transform: capitalize; margin-
 
 p     { font-size:1.6em;margin-bottom:1.125em; }
 
+#header { width:700px; height:150px;padding:20px; background:#1A1A1A url(/images/natto_stripe.png) no-repeat center bottom; margin:0 auto; }
+
 #frame    { border:none; width:740px; margin:0 auto; clear:both; background:#1A1A1A url(/images/page_background.png) repeat-y center;}
 #rail     { width:130px; overflow:hidden; float:left; text-align:right; margin:10px;}
-#content  { width:550px;float:left;padding:0 20px; }
+#content  { width:550px;float:left;padding:1.8em; }
 #footer   { clear:both;width:740px;margin:0 auto; }
 
 /*-------------------------------------
 Home page Splash Styles
 -------------------------------------*/
-#animation_frame      {height:315px;width:400px;position:relative;overflow:hidden;}
-#animation_canvas     {background:url(/images/test.jpg);width:1900px;height:1250px;position:absolute;left:0px;top:0px;}
-img.border  {height:315px;width:400px;position:absolute;left:0px;top:0px;}
-div.marker  {border:none;position:absolute;}
+#animation_frame      { height:315px;width:400px;position:relative;overflow:hidden;margin:0 auto; }
+#animation_canvas     { background:url(/images/test.jpg);width:1900px;height:1250px;position:absolute;left:0px;top:0px; }
+img.border            { height:315px;width:400px;position:absolute;left:0px;top:0px; }
+div.marker            { border:none;position:absolute; }
 
 /*-------------------------------------
 Clearfix
 -------------------------------------*/
 
-.clearfix:after       {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
-.clearfix             {display:inline-block;}
-html[xmlns] .clearfix {display:block;}
-* html .clearfix      {height:1%;}
+.clearfix:after       { content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
+.clearfix             { display:inline-block; }
+html[xmlns] .clearfix { display:block; }
+* html .clearfix      { height:1%; }
